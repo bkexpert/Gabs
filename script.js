@@ -2,7 +2,7 @@
 // CONFIGURAÇÕES
 // ============================================================================
 
-const REVEAL_DATE = "2026-07-02T13:13:00";
+const REVEAL_DATE = "2026-07-02T14:20:00";
 const KEEP_OPEN_AFTER_REVEAL = true;
 const PRE_TEXT = "Pra sempre...";
 const MAIN_TEXT = "Eu te amo.";
