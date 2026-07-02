@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>❤️</title>
+  <meta name="description" content="Uma mensagem especial.">
+  <meta name="theme-color" content="#000000">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="❤️">
+  <meta property="og:description" content="Uma mensagem especial.">
+  <meta property="og:image" content="favicon.png">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="❤️">
+  <meta name="twitter:description" content="Uma mensagem especial.">
+  <meta name="twitter:image" content="favicon.png">
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <canvas id="starCanvas" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <main id="app" class="experience" aria-live="polite">
+    <section id="preReveal" class="state state--visible" aria-labelledby="waitingTitle">
+      <div class="waiting-copy">
+        <h1 id="waitingTitle">Ainda não chegou o momento.</h1>
+        <p>Volte quando a contagem terminar.</p>
+      </div>
+
+      <div id="countdown" class="countdown" role="timer" aria-label="Contagem regressiva">
+        <div class="countdown__item">
+          <strong id="days">00</strong>
+          <span>Dias</span>
+        </div>
+        <div class="countdown__item">
+          <strong id="hours">00</strong>
+          <span>Horas</span>
+        </div>
+        <div class="countdown__item">
+          <strong id="minutes">00</strong>
+          <span>Minutos</span>
+        </div>
+        <div class="countdown__item">
+          <strong id="seconds">00</strong>
+          <span>Segundos</span>
+        </div>
+      </div>
+
+      <div id="finalCountdown" class="final-countdown" aria-live="assertive" aria-hidden="true">10</div>
+    </section>
+
+    <section id="reveal" class="state reveal" aria-hidden="true">
+      <p id="preText" class="pre-text"></p>
+
+      <div id="loveBlock" class="love-block" aria-hidden="true">
+        <div class="heart" role="img" aria-label="Coração">♥</div>
+        <h2 id="mainText"></h2>
+      </div>
+    </section>
+  </main>
+
+  <footer id="signature" class="signature" aria-hidden="true"></footer>
+
+  <button id="musicButton" class="music-button" type="button" hidden aria-label="Tocar música">
+    ▶ Tocar música
+  </button>
+
+  <audio id="backgroundMusic" src="music.mp3" loop preload="auto" aria-label="Música de fundo"></audio>
+
+  <noscript>
+    <p class="noscript-message">Ative o JavaScript para viver esta experiência.</p>
+  </noscript>
+</body>
+</html>
