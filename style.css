@@ -150,7 +150,7 @@ body.is-easter-visible #starCanvas {
 .countdown {
   position: absolute;
   left: 50%;
-  bottom: max(40px, env(safe-area-inset-bottom));
+  bottom: max(40px, calc(env(safe-area-inset-bottom) + 16px));
   display: grid;
   width: min(760px, calc(100vw - 32px));
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -383,7 +383,7 @@ body.is-easter-visible #starCanvas {
   }
 
   .countdown {
-    bottom: max(24px, env(safe-area-inset-bottom));
+    bottom: max(40px, calc(env(safe-area-inset-bottom) + 16px));
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -399,10 +399,6 @@ body.is-easter-visible #starCanvas {
 @media (max-height: 620px) {
   .waiting-copy {
     transform: translateY(-7vh);
-  }
-
-  .countdown {
-    bottom: max(18px, env(safe-area-inset-bottom));
   }
 
   .countdown__item {

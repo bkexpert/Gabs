@@ -19,7 +19,13 @@
 
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <script>
+    // Evita que uma versão antiga do JavaScript fique salva no navegador.
+    const script = document.createElement("script");
+    script.src = `script.js?v=${Date.now()}`;
+    script.defer = true;
+    document.head.append(script);
+  </script>
 </head>
 <body>
   <canvas id="starCanvas" aria-hidden="true"></canvas>

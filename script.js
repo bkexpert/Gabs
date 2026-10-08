@@ -2,7 +2,7 @@
 // CONFIGURAÇÕES
 // ============================================================================
 
-const REVEAL_DATE = "2026-10-08T13:25:00";
+const REVEAL_DATE = "2026-07-02T17:20:00";
 const KEEP_OPEN_AFTER_REVEAL = true;
 const PRE_TEXT = "Pra sempre...";
 const MAIN_TEXT = "Eu te amo!";
@@ -49,7 +49,11 @@ const sky = {
 
 console.log("Se você está lendo isto, saiba que cada linha deste projeto foi escrita com amor. ❤️");
 
-document.addEventListener("DOMContentLoaded", initExperience);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initExperience, { once: true });
+} else {
+  initExperience();
+}
 
 // ============================================================================
 // Inicialização
