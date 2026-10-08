@@ -2,7 +2,7 @@
 // CONFIGURAÇÕES
 // ============================================================================
 
-const REVEAL_DATE = "2026-10-08T12:55:00";
+const REVEAL_DATE = "2026-07-02T17:20:00";
 const KEEP_OPEN_AFTER_REVEAL = true;
 const PRE_TEXT = "Pra sempre...";
 const MAIN_TEXT = "Eu te amo!";
@@ -25,7 +25,6 @@ const experienceState = {
   hasRevealed: false,
   lastCountdownSecond: null,
   lastFinalNumber: null,
-  musicButtonUsed: false,
   targetRevealDate: null
 };
 
@@ -274,41 +273,48 @@ function wait(ms) {
 
 function initMusicControls() {
   dom.audio.volume = 0.72;
+  dom.musicButton.addEventListener("click", toggleMusic);
+  dom.audio.addEventListener("play", updateMusicButton);
+  dom.audio.addEventListener("pause", updateMusicButton);
+  dom.audio.addEventListener("ended", updateMusicButton);
+}
 
-  dom.musicButton.addEventListener("click", async () => {
-    experienceState.musicButtonUsed = true;
-    hideMusicButton();
-
+async function toggleMusic() {
+  if (dom.audio.paused) {
     try {
       await dom.audio.play();
     } catch (error) {
       console.warn("Não foi possível iniciar a música após o clique.", error);
+      updateMusicButton();
     }
-  });
+    return;
+  }
+
+  dom.audio.pause();
 }
 
 function tryStartMusic() {
+  showMusicButton();
   const playPromise = dom.audio.play();
 
   if (playPromise && typeof playPromise.catch === "function") {
     playPromise.catch(() => {
-      if (!experienceState.musicButtonUsed) {
-        showMusicButton();
-      }
+      updateMusicButton();
     });
   }
 }
 
 function showMusicButton() {
   dom.musicButton.hidden = false;
+  updateMusicButton();
   window.requestAnimationFrame(() => showElement(dom.musicButton));
 }
 
-function hideMusicButton() {
-  hideElement(dom.musicButton);
-  window.setTimeout(() => {
-    dom.musicButton.hidden = true;
-  }, prefersReducedMotion ? 0 : 700);
+function updateMusicButton() {
+  const isPlaying = !dom.audio.paused && !dom.audio.ended;
+  dom.musicButton.textContent = isPlaying ? "❚❚ Pausar música" : "▶ Tocar música";
+  dom.musicButton.setAttribute("aria-label", isPlaying ? "Pausar música" : "Tocar música");
+  dom.musicButton.setAttribute("aria-pressed", String(isPlaying));
 }
 
 // ============================================================================
