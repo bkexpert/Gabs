@@ -2,7 +2,7 @@
 // CONFIGURAÇÕES
 // ============================================================================
 
-const REVEAL_DATE = "2026-10-10T22:30:00";
+const REVEAL_DATE = "2026-10-11T22:30:00";
 const KEEP_OPEN_AFTER_REVEAL = true;
 const PRE_TEXT = "Pra sempre...";
 const MAIN_TEXT = "Pra sempre serei seu player 2!";
