@@ -2,10 +2,10 @@
 // CONFIGURAÇÕES
 // ============================================================================
 
-const REVEAL_DATE = "2026-10-16T22:30:00";
+const REVEAL_DATE = "2026-10-14T16:29:00";
 const KEEP_OPEN_AFTER_REVEAL = true;
-const PRE_TEXT = "Pra sempre...";
-const MAIN_TEXT = "Pra sempre serei seu player 2!";
+const PRE_TEXT = "Pra sempre serei seu player 2!";
+const MAIN_TEXT = "Feliz dia do skate 2. I.L.Y";
 const SIGNATURE = "Com amor, Gabriel (Deu um trabalho da desgraça fazer esse céu que se mexe no fundo..)";
 
 // ============================================================================
